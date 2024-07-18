@@ -1,0 +1,177 @@
+// Modified for a real Spanish keyboard by Jon Tombs.
+
+default partial alphanumeric_keys
+xkb_symbols "basic" {
+    include "es(basic)"
+    name[Group1] = "Streq";
+
+    key <RALT> {
+        type[Group1]="ONE_LEVEL",
+        symbols[Group1] = [ ISO_Level3_Shift ]
+    };
+    
+    // Ensure a mapping to a real modifier for LevelThree.
+    replace key <LVL3> {
+        type[Group1] = "ONE_LEVEL",
+        symbols[Group1] = [ ISO_Level3_Shift ]
+    };
+    modifier_map Mod5 { <LVL3> };
+
+
+    key <TLDE>    { [ BackSpace ,  BackSpace ,  BackSpace ,  BackSpace ] };
+    //key <TAB>     { [ BackSpace ,  BackSpace ,  BackSpace ,  BackSpace ] };
+    //key <AE01>  { [         1 , VoidSymbol , VoidSymbol , VoidSymbol ] };
+    //key <AE02>  { [         2 , VoidSymbol , VoidSymbol , VoidSymbol ] };
+    //key <AE03>  { [         3 , VoidSymbol , VoidSymbol , VoidSymbol ] };
+    //key <AE04>  { [         4 , VoidSymbol , VoidSymbol , VoidSymbol ] };
+    //key <AE05>  { [         5 , VoidSymbol , VoidSymbol , VoidSymbol ] };
+    //key <AE06>  { [         6 , VoidSymbol , VoidSymbol , VoidSymbol ] };
+    //key <AE07>  { [         7 , VoidSymbol , VoidSymbol , VoidSymbol ] };
+    //key <AE08>  { [         8 , VoidSymbol , VoidSymbol , VoidSymbol ] };
+    //key <AE09>  { [         9 , VoidSymbol , VoidSymbol , VoidSymbol ] };
+    //key <AE10>  { [         0 , VoidSymbol , VoidSymbol , VoidSymbol ] };
+
+    //Swap Caps_Lock and BackSpace
+
+    key <CAPS> {
+        //autorepeat = yes,
+        //type[Group1] = "TWO_LEVEL",
+        symbols[Group1] = [       BackSpace,       BackSpace,        Delete,           Delete ]
+        //actions[Group1] = [      NoAction(),      NoAction(),    NoAction(),    NoAction() ]
+    };
+
+
+
+    key <BKSP> {
+        autorepeat = yes,
+        type[Group1] = "TWO_LEVEL",
+        symbols[Group1] = [       Caps_Lock,       Caps_Lock,     Caps_Lock,                     Caps_Lock ],
+        actions[Group1] = [      LockMods(modifiers = Lock),      LockMods(modifiers = Lock),    LockMods(modifiers = Lock),    LockMods(modifiers = Lock) ]
+    };
+
+    
+    //Make < another shift
+    
+    key <LSGT> { [ Shift_L, Shift_L, Shift_L, Shift_L ] };
+    
+
+    
+
+
+   //HOME KEYS
+
+    // aA<>
+    key <AC01> { [ a, A, less, greater ] };
+    // sS()
+    key <AC02> { [ s, S, parenleft, parenright ] };
+    // dD[]
+    key <AC03> { [ d, D, bracketleft, bracketright ] };
+    // fF{}
+    key <AC04> { [ f, F, braceleft, braceright ] };
+
+    // jJ/\
+    key <AC07> { [ j, J, equal, backslash ] };
+    // kK"'
+    key <AC08> { [ k, K, slash, plus ] };
+    // lL!¡
+    key <AC09> { [ l, L, exclam, exclamdown ] };
+    // ;:?¿
+    key <AC10> { [ apostrophe, quotedbl, question, questiondown ] };
+
+    // gG+
+    key <AC05> { [ g, G, colon, VoidSymbol ] };
+    // hH=
+    key <AC06> { [ h, H, semicolon, VoidSymbol ] };
+
+    //UPPER HOME
+
+    // qQ@
+    key <AD01> { [ q, Q, at, VoidSymbol ] };
+    // wW~
+    key <AD02> { [ w, W, asciitilde, VoidSymbol ] };
+    // eE|€
+    key <AD03> { [ e, E, bar, EuroSign ] };
+    // rR&
+    key <AD04> { [ r, R, ampersand, VoidSymbol ] };
+
+    // uU'
+    key <AD07> { [ u, U, percent, VoidSymbol ] };
+    // iI$
+    key <AD08> { [ i, I, dollar, VoidSymbol ] };
+    // oO#
+    key <AD09> { [ o, O, numbersign, VoidSymbol ] };
+    // pP%
+    key <AD10> { [ p, P, asterisk, VoidSymbol ] };
+
+    // tT
+    key <AD05> { [ t, T , VoidSymbol, VoidSymbol ] };
+    // yY\
+    key <AD06> { [ y, Y, VoidSymbol , VoidSymbol ] };
+
+    // ñÑ
+    key <AD11> { [ ntilde, Ntilde , VoidSymbol, VoidSymbol ] };
+    // +*
+    key <AD12> { [ plus, asterisk , VoidSymbol, VoidSymbol ] };
+
+    // ´¨
+    key <AC11> { [ dead_acute, diaeresis , VoidSymbol, VoidSymbol ] };
+    // `^
+    key <AC12> { [ dead_grave, dead_circumflex , VoidSymbol, VoidSymbol ] };
+
+    //HOME LOWER
+
+    // zZ>
+    key <AB01> { [ z, Z, greater , VoidSymbol ] };
+    // xX)
+    key <AB02> { [ x, X, parenright , VoidSymbol ] };
+    // cC]
+    key <AB03> { [ c, C, bracketright , VoidSymbol ] };
+    // vV}
+    key <AB04> { [ v, V, braceright , VoidSymbol ] };
+
+
+    // mM
+    key <AB07> { [ m, M , plus, VoidSymbol ] };
+    // ,;
+    key <AB08> { [ comma, semicolon , backslash, VoidSymbol ] };
+    // .:
+    key <AB09> { [ period, colon , exclamdown, VoidSymbol ] };
+    // -_
+    key <AB10> { [ minus, underscore , questiondown, VoidSymbol ] };
+
+    // bB
+    key <AB05> { [ b, B , VoidSymbol, VoidSymbol ] };
+    // nNñÑ
+    key <AB06> { [ n, N, ntilde, Ntilde ] };
+
+
+    
+    key <SPCE> { [ space, space, Return, Return] };
+
+
+    // (Currently using an i3 config that maps ISO_Last_Group to "navigation" and ISO_First_Group to "basic")
+    key <RWIN> { [ ISO_Last_Group, ISO_Last_Group, ISO_Last_Group, ISO_Last_Group ] };
+
+};
+
+
+
+
+partial alphanumeric_keys
+xkb_symbols "navigation" {
+    include "streq(basic)"
+    key <RWIN> { [ ISO_First_Group, ISO_First_Group, ISO_First_Group, ISO_First_Group ] };
+        
+    key <TLDE>  { [ Delete, Delete, Delete, Delete ] };
+    key <AC01> { [ Down, Down, Down, Down ] };
+    key <AC02> { [ Left, Left, Left, Left ] };
+    key <AC03> { [ Up, Up, Up, Up ] };
+    key <AC04> { [ Right, Right, Right, Right ] };
+
+    key <AC07> { [ Left, Left, Left, Left ] };
+    key <AC08> { [ Up, Up, Up, Up ] };
+    key <AC09> { [ Right, Right, Right, Right ] };
+    key <AC10> { [ Down, Down, Down, Down ] };
+    key <AC11> { [ BackSpace, BackSpace, BackSpace, BackSpace ] };
+
+};
